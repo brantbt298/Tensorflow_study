@@ -1,0 +1,10 @@
+####################卷积函数conv2d的使用练习############################
+import tensorflow as tf
+import numpy as np
+input_data = tf.Variable( np.random.rand(1,9,9,9), dtype = np.float32 )
+filter_data = tf.Variable( np.random.rand(1, 9, 9, 3), dtype = np.float32)
+y = tf.nn.conv2d(input_data, filter_data, strides = [0., 0., 1., 0.], padding = 'VALID')
+init_op = tf.global_variables_initializer()
+sess=tf.Session()
+sess.run(init_op)
+print(sess.run(input_data))
